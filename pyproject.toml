@@ -1,0 +1,108 @@
+[tool]
+[tool.poetry]
+name = "pysports"
+version = "0.1.0"
+homepage = "https://github.com/jeffamaxey/pysports"
+description = "Python API for Sports Data."
+authors = ["Jeff Maxey <jeffmaxey@comcast.net>"]
+readme = "README.md"
+license =  "MIT"
+classifiers=[
+    'Development Status :: 2 - Pre-Alpha',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Natural Language :: English',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.12',
+]
+packages = [
+    { include = "pysports" },
+    { include = "tests", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+fire = "0.4.0"
+importlib-metadata = "4.8.3"
+black  = { version = "^22.3.0", optional = true}
+isort  = { version = "5.10.1", optional = true}
+flake8  = "^7.0.0"
+flake8-docstrings = { version = "^1.6.0", optional = true }
+pytest  = { version = "^7.0.1", optional = true}
+pytest-cov  = { version = "^3.0.0", optional = true}
+tox  = { version = "^3.24.5", optional = true}
+mkdocs  = { version = "^1.2.3", optional = true}
+mkdocs-include-markdown-plugin  = { version = "^3.2.3", optional = true}
+mkdocs-material  = { version = "^8.1.11", optional = true}
+mkdocstrings  = { version = "^0.18.0", optional = true}
+mkdocs-material-extensions  = { version = "^1.0.3", optional = true}
+twine  = { version = "^3.8.0", optional = true}
+mkdocs-autorefs = {version = "^0.3.1", optional = true}
+pre-commit = {version = "^2.17.0", optional = true}
+toml = {version = "^0.10.2", optional = true}
+livereload = {version = "^2.6.3", optional = true}
+pyreadline = {version = "^2.1", optional = true}
+mike = { version="^1.1.2", optional=true}
+mypy = {version = "^1.5.1", optional = true}
+setuptools = {version="^68.0", optional = true}
+pkginfo = {version="^1.9", optional = true}
+virtualenv = {version="^20.0", optional = true}
+nox = "^2023.4.22"
+
+[tool.poetry.extras]
+test = [
+    "pytest",
+    "pytest-cov"
+    ]
+
+dev = ["tox",
+    "pre-commit",
+    "twine",
+    "toml",
+    "black",
+    "isort",
+    "flake8",
+    "flake8-docstrings",
+    "mypy"
+    ]
+
+doc = [
+    "mkdocs",
+    "mkdocs-include-markdown-plugin",
+    "mkdocs-material",
+    "mkdocstrings",
+    "mkdocs-material-extension",
+    "mkdocs-autorefs",
+    "mike",
+    "setuptools",
+    "pkginfo",
+    "virtualenv"
+    ]
+
+[tool.poetry.scripts]
+pysports = 'pysports.cli:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | \.history
+)/
+'''
+[tool.isort]
+profile = "black"
