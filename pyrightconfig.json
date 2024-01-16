@@ -14,7 +14,7 @@
   ],
 
   "ignore": [
-    "src/oldstuff"
+    "src/archive"
   ],
 
   "reportMissingImports": true,

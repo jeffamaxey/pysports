@@ -1,4 +1,4 @@
-"""Top-level package for py-sports."""
+"""Top-level package for pysports."""
 
 __author__ = """Jeff Maxey"""
 __email__ = "jeffmaxey@comcast.net"
